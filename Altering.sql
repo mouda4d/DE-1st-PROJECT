@@ -1,5 +1,4 @@
 USE CompanyDB;
-GO
 
 ALTER TABLE Employees
 ADD CONSTRAINT CHK_Salary CHECK (Salary > 0);
