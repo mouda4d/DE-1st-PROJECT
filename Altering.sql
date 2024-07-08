@@ -1,11 +1,6 @@
 USE CompanyDB;
 GO
 
-
-ALTER TABLE Departments
-ADD CONSTRAINT CHK_DepartmentID CHECK (DepartmentID > 0);
-GO
-
 ALTER TABLE Employees
 ADD CONSTRAINT CHK_Salary CHECK (Salary > 0);
 
