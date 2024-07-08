@@ -1,3 +1,5 @@
+ USE CompanyDB;
+ 
  -- 1
  SELECT UPPER(E.FirstName) AS UpperFirstName, 
  LOWER(E.LastName) AS LowerLastName, 
