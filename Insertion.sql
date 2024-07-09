@@ -1,5 +1,9 @@
 USE CompanyDB;
 
+--Inserting into the database as two transactions 
+--First, staff side
+BEGIN TRANSACTION;
+
 INSERT INTO Departments (DepartmentID, DepartmentName, Location)
 VALUES 
     (1, 'IT Department', 'Headquarters'),
@@ -27,6 +31,13 @@ VALUES
     (3, 3, 2, 'Project Manager', '2024-03-01'),
     (4, 4, 2, 'Sales Representative', '2024-03-01'),
     (5, 5, 3, 'Marketing Coordinator', '2023-07-01');
+
+--Commit transaction
+COMMIT;
+
+
+--Second, sales side
+BEGIN TRANSACTION;
 
 INSERT INTO Customers (CustomerID, CustomerName, ContactNumber, Email, Address)
 VALUES
@@ -58,3 +69,6 @@ VALUES
     (4, 3, 3, 1, 300.00),
     (5, 4, 5, 2, 150.00),
     (6, 5, 1, 2, 1200.00);
+
+--Commit transaction
+COMMIT;
