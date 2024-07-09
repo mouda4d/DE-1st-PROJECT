@@ -1,14 +1,17 @@
 CREATE DATABASE CompanyDB;
 GO
 USE CompanyDB;
-
-CREATE TABLE Departments (
+CREATE SCHEMA Sales;
+GO
+CREATE SCHEMA Staff;
+GO
+CREATE TABLE Staff.Departments (
   DepartmentID INT PRIMARY KEY,
   DepartmentName VARCHAR(100) NOT NULL,
   Location VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Employees (
+CREATE TABLE Staff.Employees (
   EmployeeID INT PRIMARY KEY,
   FirstName VARCHAR(50) NOT NULL,
   LastName VARCHAR(50) NOT NULL,
@@ -18,7 +21,7 @@ CREATE TABLE Employees (
   Salary DECIMAL(10, 2) NOT NULL
 );
 
-CREATE TABLE Projects (
+CREATE TABLE Staff.Projects (
   ProjectID INT PRIMARY KEY,
   ProjectName VARCHAR(100) NOT NULL,
   StartDate DATE NOT NULL,
@@ -26,7 +29,7 @@ CREATE TABLE Projects (
   Budget DECIMAL(15, 2) NOT NULL
 );
 
-CREATE TABLE Assignments (
+CREATE TABLE Staff.Assignments (
   AssignmentID INT PRIMARY KEY,
   EmployeeID INT NOT NULL,
   ProjectID INT NOT NULL,
@@ -34,7 +37,7 @@ CREATE TABLE Assignments (
   AssignmentDate DATE NOT NULL
 );
 
-CREATE TABLE Customers (
+CREATE TABLE Sales.Customers (
   CustomerID INT PRIMARY KEY,
   CustomerName VARCHAR(100) NOT NULL,
   ContactNumber VARCHAR(15) NOT NULL,
@@ -42,14 +45,14 @@ CREATE TABLE Customers (
   Address VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Orders (
+CREATE TABLE Sales.Orders (
   OrderID INT PRIMARY KEY,
   CustomerID INT NOT NULL,
   OrderDate DATE NOT NULL,
   TotalAmount DECIMAL(10, 2) NOT NULL
 );
 
-CREATE TABLE Products (
+CREATE TABLE Sales.Products (
   ProductID INT PRIMARY KEY,
   ProductName VARCHAR(100) NOT NULL,
   Category VARCHAR(50) NOT NULL,
@@ -57,7 +60,7 @@ CREATE TABLE Products (
   StockQuantity INT NOT NULL
 );
 
-CREATE TABLE OrderDetails (
+CREATE TABLE Sales.OrderDetails (
   OrderDetailID INT PRIMARY KEY,
   OrderID INT,
   ProductID INT,
